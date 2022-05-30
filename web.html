@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style> 
+
+        /* 태그 영역 */
+        body, h1, h2, h3, h4, h5, h6, p, ul, ol, table, dl {
+            margin: 0 auto;
+            padding: 0;
+        }
+        h1 {
+            font-size: 16px;
+        }
+        p{
+            margin: 10px 0;
+        }
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+        ul ol {
+            list-style: none;
+        }
+        img {
+            vertical-align: top;
+            border: none;
+        }
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;/* border-spacing으로 표(table)의 테두리와 셀(td)의 테두리 사이의 간격을 정합니다. */
+        }
+        
+        /* 부모 선택자 */
+        body{
+            background: linear-gradient(skyblue, white,white,white);
+            background-repeat: no-repeat;/*background-repeat로 배경 이미지의 반복 여부와 반복 방향을 정합니다.*/
+        } 
+        .wrapper{
+            width:967px; 
+            margin:10px auto;
+            background-color:#fff;
+        }
+
+        /* header 영역 */
+        #header{
+            position:relative;
+        }
+
+        #header .header_title{
+            font-size:50px;
+            font-weight:800;
+            color:#ff0;
+            position:absolute; /*부모(조상) 요소를 기준으로 배치 */
+            left:20px; 
+            top:20px;
+        }
+
+        #header .map{
+            width:967px;
+            height:283px; 
+            background:url(img/bg.png)no-repeat 0 0;
+        }
+
+        #header .menu{
+            background-color:rgb(8, 114, 8);
+        }
+
+        #header .menu ul{
+            overflow:hidden;
+        }
+
+        #header .menu ul li{
+            float:left; 
+            padding:0 50px; 
+            margin-left:30px;
+            list-style: none;
+        }
+
+        #header .menu ul li:first-child{
+            margin-left:0px;
+        }
+
+        #header .menu ul li a{
+            display:block; 
+            line-height:70px;
+            color:#fff;
+        }
+
+        /* section 영역 */
+        #section .main_content{
+            overflow:hidden;
+        }
+
+        #section .main_content .text{
+            width:calc(100% - 240px);
+            padding:10px;
+            float:left;
+        }
+
+        #section .main_content .text h1{
+            margin:10px 0;
+            font-size:23px; 
+            font-weight:600;
+        }
+
+        #section .main_content .text .sub_tit{
+            margin:5px 0;
+            font-size:18px; 
+            font-weight:600;
+        }
+
+        #section .main_content .banner{
+            width:220px;
+            float:right;
+        }
+
+        #section .main_content .banner li{
+            border:10px solid #ddffdd;
+            list-style: none;
+        }
+        #section .main_content .banner li:nth-child(2){
+            border-top:none;
+        }
+        #section .main_content .banner li:last-child{
+            border-top:none;
+        }
+
+        /* footer 영역 */
+        #footer{
+            background-color:#061f1f; 
+            padding:10px;color:#fff; 
+            text-align:center;
+            height:100px;
+        }
+        #footer .adress{
+            margin:20px 0;
+        }
+        #footer .copyright{
+            font-style: italic;
+            margin:20px 0;
+        }
+
+        /* 반응형 */
+        @media only screen and (max-width:800px){
+            
+            .wrapper{width:80%}
+
+            #header .map{
+                width:100%;
+                height:100px;
+                background:none;
+                background-color:#061f1f;
+            }
+
+            #header .menu{
+                background-color:#fff;
+            }
+
+            #header .menu ul {
+                width:80%; 
+                margin:0 auto;
+            }
+
+            #header .menu ul li{
+                float:none; 
+                margin:20px 0; 
+                margin-left:0;
+                text-align:center;
+                border:2px solid #eee;
+                border-radius:20px;
+            }
+
+            #header .menu ul li a{
+                display:block; 
+                line-height:70px;/* 주로 텍스트간의 줄 간격을 조절할 때 사용한다. */
+                color:blue;
+            }
+            
+            #section .main_content .text{
+                float:none;
+                width:calc(100% - 40px);/*calc() 함수는 매개변수로 표현식 하나를 받고, 표현식의 결과가 최종 값이 됩니다.표준 연산자 우선순위를 따릅니다.주의! 0으로 나누면 오류남
+                좌우 간격 즉 가로너비를 조절하는 코딩*/
+                padding:20px;
+                
+            }
+            #section .main_content .banner{
+                float:none;
+                width:calc(100% - 40px);    
+                margin: 0 auto;
+                
+            }
+            #section .main_content .banner li{
+                border:none;
+                width:100%;
+                margin:10px 0;
+            }
+            #section .main_content .banner li img{
+                width:100%;
+            }
+
+        }
+
+    </style>
+
+<body>
+    <div class="wrapper">
+        <header id="header">
+            <div class="header_title">Joandora</div>
+            <div class="map"></div>
+            <div class="menu">
+                <ul>
+                    <li><a href="#">이용 안내</a></li><!-- #은 주소를 나중에 넣겠다는 의미 -->
+                    <li><a href="#">시설 소개</a></li>
+                    <li><a href="#">예약 방법</a></li>
+                    <li><a href="#">예약 하기</a></li>
+                </ul>
+            </div>
+        </header>
+
+        <section id="section">
+            <div class="main_content">
+                <div class="text">
+                    <h1>요안도라 소개</h1>
+                    <div class="sub_tit">¤ 요안도라는 게스트 하우스(Guest House) 형식의 농어촌 민박입니다.</div>
+                    <div class="desc">
+                    <P>성산의 날씨는 다음주 내내 높은 구름에 햇살 가득이라고 합니다. 목요일이면 섭씨 27도까지 오른다고 하지만, 늘 부는 바람이 쾌적한 균형을 잡아 마당에 마당에 나가 앉아 있는 시간이 많아질듯 합니다.오늘은 사진에 보이는 긴 돌담을 따라 들어오는 요안도레 올레 입구에 특곤색의 대문을 달았습니다.</P>
+                    <P>내일은 두달 여동안 밖거리에 만든 게스트 하우스에 연백색의 황토 페인트를 칠할 예정입니다. 그리고 이것저것 사소한 정리를 마치고 나면, 나이 드시고 젊고 한 미지의 새식구들을 설렘으로 만나고 함께하고, 도시의 바쁜 생활로 소원해진 오래된 친구와의 우정을 이 제주에서 새롭게 열어나가기 위해 요안도라를 세상에 알리려고 합니다.</P>
+                    <p>그럼 이 홈페이지를 공식적으로 체계적으로 갖추면서, 그동안 공사로 어수선해 올려드리지 못한 집 안팎 사진들을 상세하게 올리고 당신을 만날 채비를 마치겠습니다.</p>
+                </div>
+            </div>
+
+            <div class="banner">
+                <ul>
+                    <li><img src="img/1.jpg" alt="banner_img1"></li>
+                    <li><img src="img/2.jpg" alt="banner_img2"></li>
+                    <li><img src="img/3.jpg" alt="banner_img3"></li>
+                </ul>
+            </div>
+        </section>
+
+        <footer id="footer">
+            <div class="adress">제주특별자치도 남제주군 성산읍 수산리 000번지</div>
+            <div class="copyright">CopyrightⓒAll Right Reserved.</div>
+        </footer>
+    </div>
+</body>
+</html>
